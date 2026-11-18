@@ -1,0 +1,31 @@
+<ActionBar class="action-bar">
+  <NavigationButton visibility="hidden"></NavigationButton>
+  <GridLayout columns="50, *">
+    <Label class="action-bar-title" text="Matemáticos" colSpan="2"></Label>
+    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
+  </GridLayout>
+</ActionBar>
+
+<ScrollView>
+  <StackLayout class="lista">
+    <Label class="plataforma" [text]="'Ejecutando en ' + plataforma"></Label>
+
+    <GridLayout
+      *ngFor="let m of matematicos"
+      columns="*, auto"
+      rows="auto, auto"
+      class="tarjeta"
+      (tap)="onItemTap(m)"
+    >
+      <Label row="0" col="0" class="tarjeta__nombre" [text]="m.nombre"></Label>
+      <Label row="1" col="0" class="tarjeta__vida" [text]="m.vida"></Label>
+      <Label
+        row="0"
+        rowSpan="2"
+        col="1"
+        class="fas tarjeta__fav"
+        [text]="matematicosService.esFavorito(m.id) ? '&#xf005;' : '&#xf054;'"
+      ></Label>
+    </GridLayout>
+  </StackLayout>
+</ScrollView>

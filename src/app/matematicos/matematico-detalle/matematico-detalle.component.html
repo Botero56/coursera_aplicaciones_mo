@@ -1,0 +1,24 @@
+<ActionBar class="action-bar" [title]="matematico?.nombre || 'No encontrado'">
+  <NavigationButton text="Atrás" android.systemIcon="ic_menu_back" (tap)="onBackTap()"></NavigationButton>
+</ActionBar>
+
+<ScrollView *ngIf="matematico; else noEncontrado">
+  <StackLayout class="p-20">
+    <Label class="h2" [text]="matematico.nombre"></Label>
+    <Label class="body text-muted" [text]="matematico.vida"></Label>
+    <Label class="body m-t-10" textWrap="true" [text]="matematico.resumen"></Label>
+
+    <Label class="h3 m-t-20" text="Aportes"></Label>
+    <Label *ngFor="let aporte of matematico.aportes" class="body m-t-5" textWrap="true" [text]="'• ' + aporte"></Label>
+
+    <Button
+      class="-primary m-t-20"
+      [text]="matematicosService.esFavorito(matematico.id) ? 'Quitar de favoritos' : 'Agregar a favoritos'"
+      (tap)="onFavoritoTap()"
+    ></Button>
+  </StackLayout>
+</ScrollView>
+
+<ng-template #noEncontrado>
+  <Label class="page__content-placeholder" text="Matemático no encontrado"></Label>
+</ng-template>

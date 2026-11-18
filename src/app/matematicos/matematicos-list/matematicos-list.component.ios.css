@@ -1,0 +1,33 @@
+/* Estilos SOLO para iOS: celdas planas con separador, estilo UITableView */
+.lista {
+  padding: 0;
+  background-color: #f2f2f7;
+}
+
+.plataforma {
+  color: #007aff;
+  margin: 12 16 6 16;
+  font-size: 13;
+}
+
+.tarjeta {
+  background-color: #ffffff;
+  padding: 14 16;
+  border-bottom-width: 0.5;
+  border-bottom-color: #c6c6c8;
+}
+
+.tarjeta__nombre {
+  font-size: 17;
+  color: #000000;
+}
+
+.tarjeta__vida {
+  font-size: 13;
+  color: #8e8e93;
+}
+
+.tarjeta__fav {
+  color: #c7c7cc;
+  vertical-align: center;
+}
